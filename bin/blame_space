@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+~/scripts/sys/blame_space.sh

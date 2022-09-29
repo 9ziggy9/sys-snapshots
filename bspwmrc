@@ -1,0 +1,40 @@
+#! /bin/sh
+sleep 4
+$HOME/.config/polybar/launch.sh --hack &
+feh --bg-scale --no-xinerama ~/backgrounds/wallpaper.jpg &
+sh $HOME/.screenlayout/works.sh &
+
+bspc monitor HDMI-0 -d 1 2 3
+bspc monitor DP-4 -d 4 5 6
+bspc monitor DP-2 -d 7 8 9
+bspc monitor DP-0 -d 10 11 12
+
+bspc config focused_border_color \#D8DEE9
+bspc config normal_border_color \#434C5E
+bspc config active_border_color \#434C5E
+
+bspc config border_width        1
+bspc config window_gap          15
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer true
+
+# To determine class names, use xprop | grep WM_CLASS and click the screen
+bspc rule -a peek state=floating
+bspc rule -a feh state=floating
+bspc rule -a "zoom" state=floating center=on
+bspc rule -a "zoom " state=floating center=on
+bspc rule -a Gimp state=floating follow=on
+bspc rule -a Emacs state=tiled
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bspc rule -a qutebrowser state=floating focus=on center=0 layer=above
+bspc rule -a konsole state=floating
+
+bsp-layout set even 1
+bsp-layout set even 2
+bsp-layout set even 3
+bsp-layout set even 4

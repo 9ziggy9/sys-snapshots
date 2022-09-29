@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+workspace=`bspc query -D -d focused --names`
+
+if [ $workspace -gt 4 ] && [ $workspace -lt 9 ]
+then
+  tdrop -ma -w 50% -h 80% -x 640 -y 80 -n 6  eshell
+else
+  tdrop -ma -w 80% -h 40% -x 112 -y 480 -n 6  eshell
+fi
